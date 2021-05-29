@@ -1,0 +1,55 @@
+//Teste de Requisições REST - Categorias
+@baseURL = http://localhost:4000
+@id = 60b16854b937070174bb9009
+
+###
+//GET - Lista todas as categorias
+GET {{baseURL}}/categorias
+Content-Type: application/json
+
+###
+//GET - Lista apenas uma categoria por id
+GET {{baseURL}}/categorias/{{id}}
+Content-Type: application/json
+
+###
+//GET - Lista apenas uma categoria por id - Invalido
+GET {{baseURL}}/categorias/44
+Content-Type: application/json
+
+###
+//POST - Inclui categoria
+POST {{baseURL}}/categorias
+Content-Type: application/json
+
+{
+    "nome": "Churrascaria",
+    "status": "ativo"
+}
+
+###
+//DELEPE - Apaga categoria por id
+DELETE {{baseURL}}/categorias/{{id}}
+Content-Type: application/json
+
+###
+//PUT - Altera categoria por id
+PUT {{baseURL}}/categorias
+Content-Type: application/json
+
+{
+    "_id": "60b16854b937070174bb9009",
+    "nome": "Churrascaria Vegana",
+    "status": "ativo"
+}
+
+###
+//PUT - Altera categoria por id - Invalido
+PUT {{baseURL}}/categorias
+Content-Type: application/json
+
+{
+    "_id": "9999",
+    "nome": "Churrascaria Vegana",
+    "status": "ativo"
+}
