@@ -4,16 +4,17 @@ const multer = require('multer')
 
 //Definindo a pasta padrão de upload
 const upload = multer({
-    dest: './public/upload'
+    dest: './public/uploads'
 })
 
-//POST /upload 
-//Salvar img recebida via upload
-
-router.post('/', upload.array('file'), 
-async(req,res) => {
-    console.log(`Arquivos recebidos: ${res.files.lenght}`)
-    const statusUpload = req.files.lenght > 0 ? true : false
+/*******************************************
+ * POST /uploads
+ * Salvar a imagem recebida via upload
+ *******************************************/
+router.post('/', upload.array('file'),
+async(req, res) => {
+    console.log(`Arquivos recebidos: ${req.files.length}`)
+    const statusUpload = req.files.length > 0 ? true : false
     res.send({
         upload: statusUpload,
         files: req.files

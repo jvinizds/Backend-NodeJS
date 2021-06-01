@@ -2,14 +2,14 @@ const mongoose = require('mongoose')
 //Criando o schema Categoria
 
 const CategoriaSchema = mongoose.Schema({
-    nome: {type: String, unique:true},
-    status: { type:String, enum:['ativo','inativo'], default:'ativo'},
+    nome: { type: String, unique:true },
+    status: { type:String, enum: ['ativo','inativo'], default:'ativo'},
     foto: {
-        originaName: {type:String},
+        originalName: {type:String},
         path: {type:String},
         size: {type:Number},
-        mimetype: {type:String},
+        mimetype: {type:String}
     }
-},{timestamp:true})
+},{timestamps:true})
 
-module.exports = mongoose.model('categoria', CategoriaSchema)
+module.exports = mongoose.model('categoria',CategoriaSchema)
